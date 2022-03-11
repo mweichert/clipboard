@@ -29,8 +29,9 @@ const darwin: Clipboard = {
 			stdin: "piped",
 		});
 		await command.stdin?.write(new TextEncoder().encode(text));
-		command.stdin?.close();
-		command.status();
+		command.stdin.close()
+		await command.status();
+		command.close()
 	}
 };
 
@@ -51,9 +52,10 @@ const linux: Clipboard = {
 			cmd: ["xclip", "-selection", "clipboard", "-i"],
 			stdin: "piped",
 		});
-		await command.stdin?.write(new TextEncoder().encode(text));
-		command.stdin?.close();
-	    command.status();
+		await command.stdin?.write(new TextEncoder().encode(text));    
+		command.stdin.close()
+		await command.status();
+		command.close();
 	}
 };
 
@@ -75,8 +77,9 @@ const windows: Clipboard = {
 			stdin: "piped",
 		});
 		await command.stdin?.write(new TextEncoder().encode(text));
-		command.stdin?.close();
-	    command.status();
+		command.stdin.close()
+		await command.status();
+		command.close();	    
 	}
 };
 
