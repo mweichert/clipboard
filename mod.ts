@@ -31,6 +31,7 @@ const darwin: Clipboard = {
 		await command.stdin?.write(new TextEncoder().encode(text));
 		command.stdin?.close();
 		await command.status();
+		command.close()
 	}
 };
 
@@ -54,6 +55,7 @@ const linux: Clipboard = {
 		await command.stdin?.write(new TextEncoder().encode(text));
 		command.stdin?.close();
 	    	await command.status();
+	        command.close();
 	}
 };
 
@@ -77,6 +79,7 @@ const windows: Clipboard = {
 		await command.stdin?.write(new TextEncoder().encode(text));
 		command.stdin?.close();
 		await command.status();
+	        command.close();	    
 	}
 };
 
