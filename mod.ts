@@ -87,4 +87,5 @@ const windows: Clipboard = {
 const clipboard: Clipboard = Deno.build.os === "darwin" ? darwin :
   Deno.build.os === "linux" ? linux : windows;
 
+  
 export default clipboard;
